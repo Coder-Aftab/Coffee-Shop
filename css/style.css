@@ -15,7 +15,11 @@
 *::before {
   box-sizing: border-box;
 }
-
+:root {
+  --color-primary: #815b5b;
+  --color-secondary: #fff8ea;
+  --color-tertiary: #594545;
+}
 html,
 body,
 h1,
@@ -55,12 +59,6 @@ body {
   font-size: 1.4rem;
   color: var(--color-secondary);
   background: var(--color-secondary);
-}
-
-:root {
-  --color-primary: #815b5b;
-  --color-secondary: #fff8ea;
-  --color-tertiary: #594545;
 }
 
 /* Icons */
@@ -109,21 +107,45 @@ body {
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 20px;
 }
-
+.addOn__btn {
+  border: 0;
+  color: var(--color-secondary);
+}
 /* Buttons */
 
 .btn {
+  border-radius: 50%;
+  border: 0;
   font-size: 2rem;
+  font-weight: 700;
+  height: 30px;
+  margin: 5px;
+  outline: 0;
+  width: 30px;
+}
+.btn--primary {
+  color: var(--color-primary);
+  background: var(--color-secondary);
+}
+.btn--primary:hover,
+.btn--primary:focus {
+  background: #efe9dc;
+}
+
+.btn--secondary {
+  color: var(--color-secondary);
+  background: var(--color-primary);
 }
 
 /* Card */
 
 .card {
+  width: 100%;
   max-width: 34rem;
   padding: 1rem;
   border-radius: 10px;
   display: flex;
-  margin: 1rem 0;
+  margin: 1rem auto;
 }
 .card--col {
   flex-direction: column;
@@ -142,26 +164,32 @@ body {
 }
 
 .card__img {
-  width: 18rem;
+  width: 100%;
+  max-width: 20rem;
+  height: 20rem;
 }
 
 /* Product */
 
 .product {
   display: grid;
+  padding: 2rem;
 }
-
 @media screen and (min-width: 1024px) {
   .product--1xall {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     column-gap: 20px;
+  }
+
+  .product .bill {
+    grid-column: 2;
   }
 }
 
 /* Bill */
 .bill__list {
   width: 100%;
-  padding: 0;
+  padding: 1rem;
 }
 
 .bill__item {
@@ -179,7 +207,7 @@ body {
 /* Nav */
 
 .nav {
-  padding: 0 2rem;
+  padding: 0 1rem;
   display: flex;
   justify-content: space-between;
 }
@@ -188,6 +216,7 @@ body {
   align-items: center;
 }
 .nav__heading {
+  white-space: nowrap;
   color: var(--color-primary);
   display: inline-block;
 }
@@ -198,6 +227,6 @@ body {
 
 /* Container */
 
-.container{
+.container {
   max-width: 1140px;
 }

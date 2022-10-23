@@ -54,6 +54,7 @@ body {
     sans-serif;
   font-size: 1.4rem;
   color: var(--color-secondary);
+  background: var(--color-secondary);
 }
 
 :root {
@@ -169,8 +170,34 @@ body {
   justify-content: space-between;
 }
 
-.bill__item--res{
-  padding: .5rem 0 0;
+.bill__item--res {
+  padding: 0.5rem 0 0;
   margin-left: 10px;
   font-size: 1.2rem;
+}
+
+/* Nav */
+
+.nav {
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+.nav__header {
+  display: flex;
+  align-items: center;
+}
+.nav__heading {
+  color: var(--color-primary);
+  display: inline-block;
+}
+
+.nav__cart {
+  align-self: center;
+}
+
+/* Container */
+
+.container{
+  max-width: 1140px;
 }

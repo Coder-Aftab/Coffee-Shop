@@ -1,5 +1,15 @@
 /* Typography */
 
+/* Aladin fonts */
+@font-face {
+  font-family: "Aladin";
+  src: url("../assets/Aladin-Regular.woff2") format("woff2"),
+    url("../assets/Aladin-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 *,
 *::after,
 *::before {
@@ -27,17 +37,23 @@ html {
 }
 
 h1 {
-  font-size: 6.4rem;
+  font-size: 3.8rem;
 }
 h2 {
-  font-size: 4rem;
+  font-size: 2.4rem;
 }
 h3 {
-  font-size: 2.4rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: 1px;
 }
 
 body {
-  font-size: 1.6rem;
+  font-family: "Aladin", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 1.4rem;
+  color: var(--color-secondary);
 }
 
 :root {
@@ -48,24 +64,32 @@ body {
 
 /* Icons */
 .icon {
-  width: 58px;
-  height: 58px;
+  width: 64px;
+  height: 64px;
   margin: 1rem;
 }
 
 .icon--small {
-  width: 40px;
-  height: 30px;
+  width: 48px;
+  height: 48px;
+  margin: 0;
 }
 /* AddOn */
 
 .addOn {
-  max-width: 22rem;
+  width: 100%;
   display: flex;
   align-items: center;
-  background: var(--color-primary);
   justify-content: space-between;
   border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+.addOn--primary {
+  background: var(--color-primary);
+}
+.addOn--tertiary {
+  background: var(--color-tertiary);
 }
 
 .addOn__header {
@@ -78,4 +102,56 @@ body {
 }
 .addOn__icon {
   transition: all 3s;
+}
+.addOn__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 20px;
+}
+
+/* Buttons */
+
+.btn {
+  font-size: 2rem;
+}
+
+/* Card */
+
+.card {
+  max-width: 34rem;
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  margin: 1rem 0;
+}
+.card--col {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.card--outline {
+  border: 2px solid var(--color-primary);
+}
+.card--primary {
+  background: var(--color-primary);
+}
+.card--secondary {
+  background: var(--color-secondary);
+}
+
+.card__img {
+  width: 18rem;
+}
+
+/* Product */
+
+.product {
+  display: grid;
+}
+
+@media screen and (min-width: 1024px) {
+  .product--1xall {
+    grid-template-columns: repeat(4,1fr);
+    column-gap: 20px;
+  }
 }

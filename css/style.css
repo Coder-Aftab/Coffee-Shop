@@ -129,6 +129,7 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 .card--outline {
   border: 2px solid var(--color-primary);
 }
@@ -151,7 +152,25 @@ body {
 
 @media screen and (min-width: 1024px) {
   .product--1xall {
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     column-gap: 20px;
   }
+}
+
+/* Bill */
+.bill__list {
+  width: 100%;
+  padding: 0;
+}
+
+.bill__item {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bill__item--res{
+  padding: .5rem 0 0;
+  margin-left: 10px;
+  font-size: 1.2rem;
 }

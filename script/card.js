@@ -7,7 +7,7 @@ export const card = ({ id, name, milk, cream, latte, img }) => {
       <header class="addOn__header">
         <h3 class="addOn__heading">Milk<span> + $${milk}</span></h3>
       </header>
-      <input class="checkBox" name="latte" type="checkbox" id=${Date.now()}>
+      <input class="checkBox" name="latte" type="checkbox" id=${Date.now()} checked>
     <label class="checkBox__label" for=${Date.now()}></label>
     </div>
     <div class="addOn addOn--primary addOn--label" id=${id}>

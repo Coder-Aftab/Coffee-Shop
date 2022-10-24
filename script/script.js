@@ -76,8 +76,9 @@ function handleAddToCart(val, id) {
     qty: Number(qtys[id - 1].innerText),
   };
   qtys[id - 1].innerText = 1;
+  console.log(newItem);
   renderBill(newItem);
-  //console.log(newItem);
+
 }
 const totalBill = document.querySelector(".total");
 const billModal = document.getElementById("bill--block");
@@ -94,6 +95,7 @@ document.onclick = function (event) {
   }
 };
 function renderBill(billItem) {
+  // console.log(billItem);
   billDetails.push(billItem);
   navCart.innerText = billDetails.length;
   const node = document.createElement("li");
@@ -107,7 +109,7 @@ function renderBill(billItem) {
     }
     return acc;
   }, ``);
-  totalBill.innerText = Number(totalBill.innerText) + itemValue;
+  totalBill.innerText = Number(totalBill.innerText) + (itemValue*billItem.qty);
   console.log(metaData);
   node.innerHTML = ` <li>
             <div class="bill__item">
@@ -116,8 +118,8 @@ function renderBill(billItem) {
                   ${metaData}
                 </ul>
               </span>
-              <span>${billItem.qty}</span>
-              <span>${itemValue}</span>
+              <span>${billItem.qty}x${itemValue}</span>
+              <span>${itemValue * billItem.qty}</span>
             </div>
           </li>`;
   BillList.appendChild(node);
@@ -128,7 +130,8 @@ const forms = document.querySelectorAll(".form");
 forms.forEach((form) => {
   form.onsubmit = (e) => {
     e.preventDefault();
-    const val = Object.values(form).filter((val) => val.checked);
+    const val = Object.values(form).map((val) => val.checked);
+    console.log(val)
     handleAddToCart(val, form.id);
     form.reset();
   };

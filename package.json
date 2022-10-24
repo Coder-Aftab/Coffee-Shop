@@ -1,0 +1,27 @@
+{
+  "name": "jtc",
+  "version": "1.0.0",
+  "description": "By _Md_Aftab_",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"parcel",
+    "build": "parcel build index.html assets/**"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Coder-Aftab/Coffe-Shop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Coder-Aftab/Coffe-Shop/issues"
+  },
+  "homepage": "https://github.com/Coder-Aftab/Coffe-Shop#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5",
+    "parcel-plugin-static-files-copy": "^2.6.0"
+  }
+
+}

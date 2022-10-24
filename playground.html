@@ -10,77 +10,72 @@
   <link rel="stylesheet" href="./css/normalize.css">
   <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <style>
-  .checkBox {
-    height: 0;
-    width: 0;
-    visibility: hidden;
+  .bill{
+    color: var(--color-secondary);
   }
-
-  .checkBox__label {
-    cursor: pointer;
-    text-indent: -9999px;
-    width: 58px;
-    height: 38px;
-    background: var(--color-primary);
-    display: block;
-    border-radius: 30px;
-    position: relative;
-    border: 6px solid var(--color-secondary);
-  }
-
-  .checkBox__label:after {
-    content: '';
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 20px;
-    height: 20px;
-    background: var(--color-secondary);
-    border-radius: 100%;
-    transition: all 0.3s;
-  }
-
-  .checkBox:checked+.checkBox__label {
-    background: var(--color-secondary);
-  }
-
-  .checkBox:checked+.checkBox__label:after {
-    background: var(--color-primary);
-    left: calc(100% - 5px);
-    transform: translateX(-100%);
-  }
-
-  .checkBox__label:active:after {
-    width: 46px;
-  }
-
-  .form {
-    background: var(--color-primary);
-  }
-</style>
+  </style>
 
 <body>
-  <form class="form">
-    <input class="checkBox" name="1" type="checkbox" id="1">
-    <label class="checkBox__label" for="1"></label>
-    <input class="checkBox" name="cream" type="checkbox" id="cream">
-    <label class="checkBox__label" for="cream"></label>
-    <input class="checkBox" name="latte" type="checkbox" id="latte">
-    <label class="checkBox__label" for="latte"></label>
+    <section class="">
+      <section class="card card--col card--primary bill">
+        <h2>Order Details</h2>
+        <ol class="bill__list result--list">
+          <li class="bill__item"><span>Product</span>
+            <span>$Price</span>
+          </li>
+          <li>
+            <div class="bill__item">
 
-    <button class="addOn addOn--tertiary addOn__cart-btn submit" type="submit">Submit</button>
-  </form>
-  <script>
-    const form = document.querySelector(".form");
-    form.onsubmit = (e) => {
-      e.preventDefault();
-      Object.values(form).forEach(val => {
-        console.log(val.checked);
-      })
-      form.reset();
-    }
-  </script>
+              <span>
+                Cappuccino
+                <ul class="bill__list">
+                  <li class="bill__item--res">Milk</li>
+                  <li class="bill__item--res">Milk</li>
+                </ul>
+              </span>
+
+              <span>$150</span>
+            </div>
+          </li>
+          <li>
+            <div class="bill__item">
+
+              <span>
+                Cappuccino
+                <ul class="bill__list">
+                  <li class="bill__item--res">Milk</li>
+                  <li class="bill__item--res">Milk</li>
+                </ul>
+              </span>
+
+              <span>$150</span>
+            </div>
+          </li>
+          <li>
+            <div class="bill__item">
+
+              <span>
+                Cappuccino
+                <ul class="bill__list">
+                  <li class="bill__item--res">Milk</li>
+                  <li class="bill__item--res">Milk</li>
+                </ul>
+              </span>
+
+              <span>$150</span>
+            </div>
+          </li>
+        </ol>
+        <h3>Total :<span class="total">$450</span></h3>
+
+      </section>
+    </section>
+
+    <script>
+      
+    </script>
 </body>
 
 </html>

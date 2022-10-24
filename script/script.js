@@ -15,26 +15,22 @@ const CardItems = data.map((item) => {
       <header class="addOn__header">
         <h3 class="addOn__heading">Milk<span> + $${item.milk}</span></h3>
       </header>
-      <input class="checkBox" name="latte" type="checkbox" id=${
-        Date.now() + 10
-      }>
-    <label class="checkBox__label" for=${Date.now() + 10}></label>
+      <input class="checkBox" name="latte" type="checkbox" id=${Date.now()}>
+    <label class="checkBox__label" for=${Date.now()}></label>
     </div>
     <div class="addOn addOn--primary addOn--label" id=${item.id}>
       <header class="addOn__header">
         <h3 class="addOn__heading">Cream<span> + $${item.cream}</span></h3>
       </header>
-      <input class="checkBox" name="cream" type="checkbox" id=${
-        Date.now() + 20
-      }>
-    <label class="checkBox__label" for=${Date.now() + 20}></label>
+      <input class="checkBox" name="cream" type="checkbox" id=${Date.now() * 5}>
+    <label class="checkBox__label" for=${Date.now() * 5}></label>
     </div>
     <div class="addOn addOn--primary addOn--label" id=${item.id}>
       <header class="addOn__header">
         <h3 class="addOn__heading">Latte<span> + $${item.latte}</span></h3>
       </header>
-     <input class="checkBox" name="latte" type="checkbox" id=${Date.now() + 35}>
-    <label class="checkBox__label" for=${Date.now() + 35}></label>
+     <input class="checkBox" name="latte" type="checkbox" id=${Date.now() * 10}>
+    <label class="checkBox__label" for=${Date.now() * 10}></label>
     </div>
     <div class="addOn__grid">
       <div class="addOn addOn--primary" id=${item.id}>
@@ -102,18 +98,62 @@ let BillDetails = [];
 function handleAddToCart(val, id) {
   const newItem = {
     id: Date.now(),
+    name: data[id - 1].name,
     parentId: id,
-    milk: val[0],
-    cream: val[1],
-    latte: val[2],
+    milk: {
+      name: "Milk",
+      present: val[0],
+      price: data[id - 1].milk,
+    },
+    cream: {
+      name: "Cream",
+      present: val[1],
+      price: data[id - 1].cream,
+    },
+    latte: {
+      name: "Latte",
+      present: val[2],
+      price: data[id - 1].latte,
+    },
     qty: Number(qtys[id - 1].innerText),
   };
   qtys[id - 1].innerText = 1;
+  renderBill(newItem);
   console.log(newItem);
 }
-
+const totalBill = document.querySelector(".total");
+const cartItems = document.querySelector(".nav__cart--value");
 function renderBill(billItem) {
-  
+  BillDetails.push(billItem);
+  const node = document.createElement("li");
+  const BillList = document.querySelector(".result--list");
+  // const metaData = Object.values(
+  //   Object.values(billItem).filter((val) => val)
+  // ).map((val) => `<li class="bill__item--res">${val}</li>`);
+  // console.log(metaData);
+  let itemValue = 0;
+  const metaData = Object.keys(billItem).reduce((acc, key) => {
+    if (billItem[key].present) {
+      itemValue += billItem[key].price;
+      acc += ` <li class="bill__item--res">${key}</li>`;
+    }
+    return acc;
+  }, ``);
+  totalBill.innerText = Number(totalBill.innerText) + itemValue;
+  console.log(metaData);
+  node.innerHTML = ` <li>
+            <div class="bill__item">
+              <span>
+                ${billItem.name}
+                <ul class="bill__list">
+                  ${metaData}
+                </ul>
+              </span>
+              <span>${itemValue}</span>
+            </div>
+          </li>`;
+  BillList.appendChild(node);
+  cartItems.innerText = BillDetails.length;
 }
 
 const forms = document.querySelectorAll(".form");

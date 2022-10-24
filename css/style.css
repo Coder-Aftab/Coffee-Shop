@@ -297,3 +297,16 @@ body {
   .checkBox__label:active:after {
     width: 46px;
   }
+/* Cart Value */
+.nav__cart--container{
+  display: flex;
+  position: relative;
+}
+
+.nav__cart--value{
+  position: absolute;
+  top:29%;
+  right:33%;
+  font-size: 1.8rem;
+  color: var(--color-secondary);
+}

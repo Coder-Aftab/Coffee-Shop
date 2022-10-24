@@ -16,12 +16,21 @@
       <img class="icon" src="./assets/logo.svg" alt="logo">
       <h1 class="nav__heading">Coffee Shop</h1>
     </header>
-    <img class="icon icon--small nav__cart" src="./assets/shopping-cart.svg" alt="cart">
+    <section class="nav__cart--container"><img class="icon icon--small nav__cart" src="./assets/shopping-cart.svg" alt="cart"><span class="nav__cart--value">0</span></section>
   </nav>
 
   <section class="product product--1xall product--card">
     <!-- Populated using JS -->
   </section>
+<section class="card card--col card--primary bill" style="color:antiquewhite">
+  <h2>Order Details</h2>
+  <ol class="bill__list result--list">
+    <li class="bill__item"><span>Product</span>
+      <span>$Price</span>
+    </li>
+    </ol>
+    <h3>Total :$<span class="total">0</span></h3>
+    </section>
   <script type="module" src="./script/script.js"></script>
 </body>
 </html>

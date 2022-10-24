@@ -1,5 +1,5 @@
 export const card = ({ id, name, milk, cream, latte, img }) => {
-  const node = document.createElement("section");
+  const node = document.createElement("section")
   node.innerHTML = `
   <form class="card card--col card--secondary card--outline ${name} form" id=${id}>
     <img class="card__img" src=${img} alt=${name}  >

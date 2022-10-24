@@ -5,7 +5,7 @@ export const data = [
     milk: 60,
     cream: 75,
     latte: 100,
-    img: "../assets/espresso.png",
+    img: "./assets/espresso.png",
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export const data = [
     milk: 80,
     cream: 90,
     latte: 125,
-    img: "../assets/cap.png",
+    img: "./assets/cap.png",
   },
 
   {
@@ -22,6 +22,6 @@ export const data = [
     milk: 100,
     cream: 125,
     latte: 150,
-    img: "../assets/latte.png",
+    img: "./assets/latte.png",
   },
 ];

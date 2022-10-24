@@ -1,10 +1,8 @@
 export const card = ({ id, name, milk, cream, latte, img }) => {
   const node = document.createElement("section");
   node.innerHTML = `
-  <form class="card card--col card--secondary card--outline ${
-    name
-  } form" id=${id}>
-    <img class="card__img" src=${img} alt="espresso">
+  <form class="card card--col card--secondary card--outline ${name} form" id=${id}>
+    <img class="card__img" src=${img} alt=${name}  >
     <div class="addOn addOn--primary addOn--label"  id=${id}>
       <header class="addOn__header">
         <h3 class="addOn__heading">Milk<span> + $${milk}</span></h3>
@@ -32,9 +30,7 @@ export const card = ({ id, name, milk, cream, latte, img }) => {
         <button class="btn btn--primary qty-btn" type="button" value='-' type="button">-</button>
         <span class="qty">1</span><button class="btn btn--primary qty-btn" type="button" value='+'>+</button>
       </div>
-      <button class="addOn addOn--tertiary addOn__cart-btn" id=${
-        id
-      }>Add To Cart
+      <button class="addOn addOn--tertiary addOn__cart-btn" id=${id}>Add To Cart
       </button>
     </div>
   </form>`;

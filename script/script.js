@@ -1,54 +1,11 @@
 import { data } from "./data.js";
+import { card } from "./card.js";
 
 // Cards
-
-const card = document.querySelector(".product--card");
-
-const CardItems = data.map((item) => {
-  const node = document.createElement("section");
-  node.innerHTML = `
-  <form class="card card--col card--secondary card--outline ${
-    item.name
-  } form" id=${item.id}>
-    <img class="card__img" src=${item.img} alt="espresso">
-    <div class="addOn addOn--primary addOn--label"  id=${item.id}>
-      <header class="addOn__header">
-        <h3 class="addOn__heading">Milk<span> + $${item.milk}</span></h3>
-      </header>
-      <input class="checkBox" name="latte" type="checkbox" id=${Date.now()}>
-    <label class="checkBox__label" for=${Date.now()}></label>
-    </div>
-    <div class="addOn addOn--primary addOn--label" id=${item.id}>
-      <header class="addOn__header">
-        <h3 class="addOn__heading">Cream<span> + $${item.cream}</span></h3>
-      </header>
-      <input class="checkBox" name="cream" type="checkbox" id=${Date.now() * 5}>
-    <label class="checkBox__label" for=${Date.now() * 5}></label>
-    </div>
-    <div class="addOn addOn--primary addOn--label" id=${item.id}>
-      <header class="addOn__header">
-        <h3 class="addOn__heading">Latte<span> + $${item.latte}</span></h3>
-      </header>
-     <input class="checkBox" name="latte" type="checkbox" id=${Date.now() * 10}>
-    <label class="checkBox__label" for=${Date.now() * 10}></label>
-    </div>
-    <div class="addOn__grid">
-      <div class="addOn addOn--primary" id=${item.id}>
-        <h3 class="addOn__heading">QTY</h3>
-        <button class="btn btn--primary qty-btn" type="button" value='-' type="button">-</button>
-        <span class="qty">1</span><button class="btn btn--primary qty-btn" type="button" value='+'>+</button>
-      </div>
-      <button class="addOn addOn--tertiary addOn__cart-btn" id=${
-        item.id
-      }>Add To Cart
-      </button>
-    </div>
-  </form>`;
-  return node;
-});
-
-CardItems.forEach((section) => {
-  card.appendChild(section);
+const cardItems = document.querySelector(".product--card");
+//mapping cards
+data.map(({ id, name, milk, cream, latte, img }) => {
+  cardItems.appendChild(card({ id, name, milk, cream, latte, img }));
 });
 
 const qtys = document.querySelectorAll(".qty");
@@ -96,30 +53,31 @@ function handleLatte(e) {
 let billDetails = [];
 
 function handleAddToCart(val, id) {
+  const { name, milk, cream, latte } = data[id - 1];
   const newItem = {
     id: Date.now(),
-    name: data[id - 1].name,
+    name: name,
     parentId: id,
     milk: {
       name: "Milk",
       present: val[0],
-      price: data[id - 1].milk,
+      price: milk,
     },
     cream: {
       name: "Cream",
       present: val[1],
-      price: data[id - 1].cream,
+      price: cream,
     },
     latte: {
       name: "Latte",
       present: val[2],
-      price: data[id - 1].latte,
+      price: latte,
     },
     qty: Number(qtys[id - 1].innerText),
   };
   qtys[id - 1].innerText = 1;
   renderBill(newItem);
-  console.log(newItem);
+  //console.log(newItem);
 }
 const totalBill = document.querySelector(".total");
 const billModal = document.getElementById("bill--block");
@@ -132,9 +90,9 @@ navCartContainer.onclick = () => {
 document.onclick = function (event) {
   if (event.target == billModal) {
     billModal.style.display = "none";
-     document.querySelector('body').setAttribute('style', 'overflow:scroll')
+    document.querySelector("body").setAttribute("style", "overflow:scroll");
   }
-}
+};
 function renderBill(billItem) {
   billDetails.push(billItem);
   navCart.innerText = billDetails.length;
@@ -170,109 +128,8 @@ const forms = document.querySelectorAll(".form");
 forms.forEach((form) => {
   form.onsubmit = (e) => {
     e.preventDefault();
-    const val = Object.values(form).map((val) => val.checked);
+    const val = Object.values(form).filter((val) => val.checked);
     handleAddToCart(val, form.id);
     form.reset();
   };
 });
-
-
-
-
-
-// card.addEventListener("click", handleCard);
-
-// function handleCard(e) {
-//   if (e.target.classList.contains("toggle-switch-of")) {
-//     const value = e.target.value;
-//     console.log(e.target.parentElement.id);
-//     handleSwitch(e, value, e.target.parentElement.id);
-//   }
-// }
-
-// function handleSwitch(e, value, id) {
-//   if ((value == "milk" || value == "cream" || value == "latte") && id == 1) {
-//     e.target.classList.toggle("toggle-switch-on");
-//   } else if (
-//     (value == "milk" || value == "cream" || value == "latte") &&
-//     id == 2
-//   ) {
-//     e.target.classList.toggle("toggle-switch-on");
-//   } else if (
-//     (value == "milk" || value == "cream" || value == "latte") &&
-//     id == 3
-//   ) {
-//     e.target.classList.toggle("toggle-switch-on");
-//   }
-// }
-
-// forms
-// const esp = document.querySelector(".espresso");
-
-// const cap = document.querySelector(".cappuccino");
-
-// const la=document.querySelector()
-
-// const res = document.querySelector(".root");
-
-// const _arr = [];
-// class Shop {
-//   constructor() {}
-
-//   addOrder(obj) {
-//     _arr.push(obj);
-//   }
-//   showDetails() {
-//     return _arr;
-//   }
-// }
-
-// class User extends Shop {
-//   constructor() {
-//     super();
-//   }
-//   addProd(prod, ...addOn) {
-//     const obj = {
-//       prod,
-//       addOn,
-//     };
-//     super.addOrder(obj);
-//   }
-// }
-
-// class Coffee {
-//   constructor(prod, addOn, qty) {
-//     this.coffee = { prod, addOn, qty };
-//   }
-//   Espresso() {}
-
-//   Cappuccino() {
-//     this.la.cream = cream;
-//     this.la.amount += 125;
-//   }
-//   Latte() {
-//     this.la.latte = latte;
-//     this.la.amount += 150;
-//   }
-//   addQty(val) {
-//     this.es.qty = this.es.qty + val;
-//   }
-//   resetQty(val) {
-//     this.es.qty = val;
-//   }
-// }
-
-// const newUser = new User();
-
-// newUser.addProd("Es", "Milk", "Latte");
-
-// newUser.addProd("Cap", "Milk", "Latte");
-// const orderDetails = newUser.showDetails();
-
-// console.log(orderDetails);
-// const showDom = orderDetails.reduce((acc, cur) => {
-//   acc += `<span style='font-weight:bold'>${cur["prod"]}</span>
-//           ${cur["addOn"]}
-//           `;
-//   return acc;
-// }, ``);

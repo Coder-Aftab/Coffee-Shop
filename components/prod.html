@@ -1,21 +1,21 @@
 <section class="product product--1xall">
   <section class="card card--col card--secondary card--outline">
-    <img class="card__img" src="./assets/espresso.png" alt="espresso">
-    <div class="addOn addOn--primary">
+    <img class="card__img" src=${item.img} alt="espresso">
+    <div class="addOn addOn--primary addOn--label">
       <header class="addOn__header">
-        <h3 class="addOn__heading">Milk<span> + $60</span></h3>
+        <h3 class="addOn__heading">Milk<span> + $${item.milk}</span></h3>
       </header>
       <img class="icon icon--small" src="./assets/toggle-on-solid.svg" alt="">
     </div>
-    <div class="addOn addOn--primary">
+    <div class="addOn addOn--primary addOn--label">
       <header class="addOn__header">
-        <h3 class="addOn__heading">Cream<span> + $75</span></h3>
+        <h3 class="addOn__heading">Cream<span> + $${item.cream}</span></h3>
       </header>
       <img class="icon icon--small" src="./assets/toggle-on-solid.svg" alt="">
     </div>
-    <div class="addOn addOn--primary">
+    <div class="addOn addOn--primary addOn--label">
       <header class="addOn__header">
-        <h3 class="addOn__heading">Latte<span> + $100</span></h3>
+        <h3 class="addOn__heading">Latte<span> + $${item.latte}</span></h3>
       </header>
       <img class="icon icon--small" src="./assets/toggle-on-solid.svg" alt="">
     </div>
@@ -25,73 +25,9 @@
         <button class="btn btn--primary" type="button">-</button>
         1<button class="btn btn--primary" type="button">+</button>
       </div>
-      <button class="addOn addOn--tertiary addOn__btn">
-        <h3>Add To Card</h3>
+      <button class="addOn addOn--tertiary addOn__cart-btn">Add To Cart
       </button>
     </div>
-  </section>
-  <section class="card card--col card--secondary card--outline">
-    <img class="card__img" src="./assets/cap.png" alt="cappuccino">
-    <div class="addOn addOn--primary">
-      <header class="addOn__header">
-        <h3 class="addOn__heading">Milk<span> + $80</span></h3>
-      </header>
-      <img class="icon icon--small" src="./assets/toggle-on-solid.svg" alt="">
-    </div>
-    <div class="addOn addOn--primary">
-      <header class="addOn__header">
-        <h3 class="addOn__heading">Cream<span> + $90</span></h3>
-      </header>
-      <img class="icon icon--small" src="./assets/toggle-on-solid.svg" alt="">
-    </div>
-    <div class="addOn addOn--primary">
-      <header class="addOn__header">
-        <h3 class="addOn__heading">Latte<span> + $125</span></h3>
-      </header>
-      <img class="icon icon--small" src="./assets/toggle-on-solid.svg" alt="">
-    </div>
-    <div class="addOn__grid">
-      <div class="addOn addOn--primary">
-        <h3 class="addOn__heading">QTY</h3>
-        <button class="btn btn--primary" type="button">-</button>
-        1<button class="btn btn--primary" type="button">+</button>
-      </div>
-      <div class="addOn addOn--tertiary">
-        <h3>Add To Card</h3>
-      </div>
-    </div>
-  </section>
-  <section class="card card--col card--secondary card--outline">
-    <img class="card__img" src="./assets/latte.png" alt="Latte">
-    <div class="addOn addOn--primary">
-      <header class="addOn__header">
-        <h3 class="addOn__heading">Milk<span> + $100</span></h3>
-      </header>
-      <img class="icon icon--small" src="./assets/toggle-on-solid.svg" alt="">
-    </div>
-    <div class="addOn addOn--primary">
-      <header class="addOn__header">
-        <h3 class="addOn__heading">Cream<span> + $125</span></h3>
-      </header>
-      <img class="icon icon--small" src="./assets/toggle-on-solid.svg" alt="">
-    </div>
-    <div class="addOn addOn--primary">
-      <header class="addOn__header">
-        <h3 class="addOn__heading">Latte<span> + $150</span></h3>
-      </header>
-      <img class="icon icon--small" src="./assets/toggle-on-solid.svg" alt="">
-    </div>
-    <div class="addOn__grid">
-      <div class="addOn addOn--primary">
-        <h3 class="addOn__heading">QTY</h3>
-        <button class="btn btn--primary" type="button">-</button>
-        1<button class="btn btn--primary" type="button">+</button>
-      </div>
-      <div class="addOn addOn--tertiary">
-        <h3>Add To Card</h3>
-      </div>
-    </div>
-
   </section>
   <section class="card card--col card--primary bill">
     <h2>Order Details</h2>

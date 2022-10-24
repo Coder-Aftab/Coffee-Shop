@@ -57,7 +57,7 @@ body {
     "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
     sans-serif;
   font-size: 1.4rem;
-  color: var(--color-secondary);
+  color: var(--color-primary);
   background: var(--color-secondary);
 }
 
@@ -78,11 +78,13 @@ body {
 .addOn {
   width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   border-radius: 10px;
   padding: 1rem;
   margin: 1rem 0;
+}
+.addOn--label {
+  align-items: center;
+  justify-content: space-between;
 }
 .addOn--primary {
   background: var(--color-primary);
@@ -91,13 +93,9 @@ body {
   background: var(--color-tertiary);
 }
 
-.addOn__header {
-  color: var(--color-secondary);
-}
-
 .addOn__heading {
   margin: 1rem;
-  word-wrap: unset;
+  color: var(--color-secondary);
 }
 .addOn__icon {
   transition: all 3s;
@@ -107,10 +105,15 @@ body {
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 20px;
 }
-.addOn__btn {
+.addOn__cart-btn {
+  font-size: 1.8rem;
+  justify-content: center;
+  align-items: center;
   border: 0;
   color: var(--color-secondary);
+  justify-items: center;
 }
+
 /* Buttons */
 
 .btn {
@@ -126,6 +129,7 @@ body {
 .btn--primary {
   color: var(--color-primary);
   background: var(--color-secondary);
+  transition: all 0.2s;
 }
 .btn--primary:hover,
 .btn--primary:focus {
@@ -135,6 +139,23 @@ body {
 .btn--secondary {
   color: var(--color-secondary);
   background: var(--color-primary);
+}
+
+/* Toggle Switch */
+.toggle-switch-of {
+  background: url(../assets/toggle-off-solid.svg);
+  border: 0;
+  transition: all 0.3s ease-in-out;
+}
+.toggle-switch-on {
+  background: url(../assets/toggle-on-solid.svg);
+}
+
+/* qty */
+.qty {
+  color: var(--color-secondary);
+  align-self: center;
+  font-size: 1.8rem;
 }
 
 /* Card */

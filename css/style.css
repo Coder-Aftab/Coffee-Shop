@@ -251,3 +251,49 @@ body {
 .container {
   max-width: 1140px;
 }
+
+/* toggle checkBox */
+
+ .checkBox {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+
+  .checkBox__label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 58px;
+    height: 38px;
+    background: var(--color-primary);
+    display: block;
+    border-radius: 30px;
+    position: relative;
+    border: 6px solid var(--color-secondary);
+  }
+
+  .checkBox__label:after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: var(--color-secondary);
+    border-radius: 100%;
+    transition: all 0.3s;
+  }
+
+  .checkBox:checked+.checkBox__label {
+    background: var(--color-secondary);
+  }
+
+  .checkBox:checked+.checkBox__label:after {
+    background: var(--color-primary);
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+  }
+
+  .checkBox__label:active:after {
+    width: 46px;
+  }

@@ -93,7 +93,7 @@ function handleLatte(e) {
   }
 }
 
-let BillDetails = [];
+let billDetails = [];
 
 function handleAddToCart(val, id) {
   const newItem = {
@@ -122,15 +122,25 @@ function handleAddToCart(val, id) {
   console.log(newItem);
 }
 const totalBill = document.querySelector(".total");
-const cartItems = document.querySelector(".nav__cart--value");
+const billModal = document.getElementById("bill--block");
+const navCart = document.querySelector(".nav__cart--value");
+const navCartContainer = document.querySelector(".nav__cart--container");
+
+navCartContainer.onclick = () => {
+  billModal.setAttribute("style", "display:block");
+};
+document.onclick = function (event) {
+  if (event.target == billModal) {
+    billModal.style.display = "none";
+     document.querySelector('body').setAttribute('style', 'overflow:scroll')
+  }
+}
 function renderBill(billItem) {
-  BillDetails.push(billItem);
+  billDetails.push(billItem);
+  navCart.innerText = billDetails.length;
   const node = document.createElement("li");
   const BillList = document.querySelector(".result--list");
-  // const metaData = Object.values(
-  //   Object.values(billItem).filter((val) => val)
-  // ).map((val) => `<li class="bill__item--res">${val}</li>`);
-  // console.log(metaData);
+
   let itemValue = 0;
   const metaData = Object.keys(billItem).reduce((acc, key) => {
     if (billItem[key].present) {
@@ -143,17 +153,16 @@ function renderBill(billItem) {
   console.log(metaData);
   node.innerHTML = ` <li>
             <div class="bill__item">
-              <span>
-                ${billItem.name}
+              <span>${billItem.name}
                 <ul class="bill__list">
                   ${metaData}
                 </ul>
               </span>
+              <span>${billItem.qty}</span>
               <span>${itemValue}</span>
             </div>
           </li>`;
   BillList.appendChild(node);
-  cartItems.innerText = BillDetails.length;
 }
 
 const forms = document.querySelectorAll(".form");
@@ -166,6 +175,10 @@ forms.forEach((form) => {
     form.reset();
   };
 });
+
+
+
+
 
 // card.addEventListener("click", handleCard);
 

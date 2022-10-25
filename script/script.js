@@ -86,12 +86,20 @@ document.onclick = function (event) {
 // Generate Bill
 function renderBill(billItem) {
   // console.log(billItem);
+  //push new billItem to current billDetails array
   billDetails.push(billItem);
+
+  //Increment/Decrement cart value based on Array length
   navCart.innerText = billDetails.length;
+
+  //Create New li Element
   const node = document.createElement("li");
+
+  //Get Hold of Result List
   const BillList = document.querySelector(".result--list");
 
   let itemValue = 0;
+  //Generate List inside the Product for AddOns
   const metaData = Object.keys(billItem).reduce((acc, key) => {
     if (billItem[key].present) {
       itemValue += billItem[key].price;
@@ -99,8 +107,10 @@ function renderBill(billItem) {
     }
     return acc;
   }, ``);
+  //increment the total bill
   totalBill.innerText = Number(totalBill.innerText) + itemValue * billItem.qty;
   //console.log(metaData);
+  //Generate Node List
   node.innerHTML = ` <li>
             <div class="bill__item">
               <span>${billItem.name}
@@ -112,6 +122,8 @@ function renderBill(billItem) {
               <span>${itemValue * billItem.qty}</span>
             </div>
           </li>`;
+
+  //Append the node to result list
   BillList.appendChild(node);
 }
 
